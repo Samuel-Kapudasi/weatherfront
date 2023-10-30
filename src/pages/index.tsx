@@ -1,6 +1,7 @@
 // pages/index.js
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import router, { useRouter } from 'next/router';
 
 
 export default function BooksList() {
@@ -21,6 +22,11 @@ export default function BooksList() {
           console.error(error);
       }
   };
+  const router = useRouter();
+  const handleClick = () =>
+    {
+        router.replace(`/admin/login`);
+    }
   
   return (
     <div>
@@ -50,6 +56,7 @@ export default function BooksList() {
           </tbody>
         ))}
       </table>
+      <button type="submit" onClick={handleClick}>Sign In</button>
     </div>
   );
         }
